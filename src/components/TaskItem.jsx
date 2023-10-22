@@ -6,7 +6,7 @@ export default function TaskItem (props) {
 
     const checkTask = async () => {
         try {
-            const { data } = await axios.patch(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${props.todoListId}/tasks/${props.id}`)
+            const { data } = await axios.patch(`http://node53450-todos.proen.app.ruk-com.cloud/todos/${props.todoListId}/tasks/${props.id}`)
 
             if (data.status === 200) {
                 setDone(data.data.isCompleted);

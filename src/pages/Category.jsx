@@ -16,7 +16,7 @@ export default function Category () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {}[] }>}
              */
-            const { data } = await axios.get("http://node53450-todos.proen.app.ruk-com.cloud:11349/category");
+            const { data } = await axios.get("http://node53450-todos.proen.app.ruk-com.cloud/category");
             if (data.status === 200) {
                 setCategory(data.data);
                 setLoading(false);
@@ -44,7 +44,7 @@ export default function Category () {
                             /**
                              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
                              */
-                            const { data } = await axios.post("http://node53450-todos.proen.app.ruk-com.cloud:11349/category", {
+                            const { data } = await axios.post("http://node53450-todos.proen.app.ruk-com.cloud/category", {
                                 name: e.target.name.value
                             });
                             if (data.status === 200) {
@@ -86,7 +86,7 @@ export function CategoryDetail () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {}[] }>}
              */
-            const { data } = await axios.get(`http://node53450-todos.proen.app.ruk-com.cloud:11349/category/${id}`);
+            const { data } = await axios.get(`http://node53450-todos.proen.app.ruk-com.cloud/category/${id}`);
             if (data.status === 200) {
                 setCategory(data.data.category.name);
                 setTodos(data.data.todos);
@@ -104,7 +104,7 @@ export function CategoryDetail () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.post(`http://node53450-todos.proen.app.ruk-com.cloud:11349/category/${id}`, {
+            const { data } = await axios.post(`http://node53450-todos.proen.app.ruk-com.cloud/category/${id}`, {
                 title,
                 description
             });
@@ -145,7 +145,7 @@ export function CategoryDetail () {
                                     /**
                                      * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
                                      */
-                                    const { data } = await axios.delete(`http://node53450-todos.proen.app.ruk-com.cloud:11349/category/${id}`);
+                                    const { data } = await axios.delete(`http://node53450-todos.proen.app.ruk-com.cloud/category/${id}`);
                                     if (data.status === 200) {
                                         window.location.href = "/category";
                                     } else {
