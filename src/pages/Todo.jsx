@@ -19,7 +19,7 @@ export default function Todo () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.get(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${id}`);
+            const { data } = await axios.get(`https://todos.proen.app.ruk-com.cloud/api/todos/${id}`);
             if (data.status === 200) {
                 setTodo(data.data);
                 setLoading(false);
@@ -36,7 +36,7 @@ export default function Todo () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.delete(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${id}`);
+            const { data } = await axios.delete(`https://todos.proen.app.ruk-com.cloud/api/todos/${id}`);
             if (data.status === 200) {
                 window.location.href = "/";
             } else {
@@ -52,7 +52,7 @@ export default function Todo () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.put(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${id}`, {
+            const { data } = await axios.put(`https://todos.proen.app.ruk-com.cloud/api/todos/${id}`, {
                 title,
                 description
             });
@@ -71,7 +71,7 @@ export default function Todo () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.post(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${id}/tasks`, {
+            const { data } = await axios.post(`https://todos.proen.app.ruk-com.cloud/api/todos/${id}/tasks`, {
                 title
             });
             if (data.status === 200) {
@@ -109,8 +109,8 @@ export default function Todo () {
                                         e.target.description.value
                                     );
                                 }} className="flex flex-col gap-2">
-                                    <input type="text" placeholder="Title" name="title" className="w-full px-4 py-2 border rounded-md" value={todo.title} />
-                                    <input type="text" placeholder="Description" name="description" className="w-full px-4 py-2 border rounded-md" value={todo.description} />
+                                    <input type="text" placeholder="Title" name="title" className="w-full px-4 py-2 border rounded-md" defaultValue={todo.title} />
+                                    <input type="text" placeholder="Description" name="description" className="w-full px-4 py-2 border rounded-md" defaultValue={todo.description} />
                                     <button type="submit" className="px-4 py-2 text-white bg-blue-500 rounded-md">Edit Todo</button>
                                 </form>
                                 <button onClick={() => deleteTodo()} className="p-2 bg-red-500 rounded-md text-sm text-gray-100">Delete</button>
