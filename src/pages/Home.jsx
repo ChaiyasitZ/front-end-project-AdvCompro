@@ -15,7 +15,7 @@ export default function Home () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {}[] }>}
              */
-            const { data } = await axios.get("http://node53450-todos.proen.app.ruk-com.cloud:11349/todos");
+            const { data } = await axios.get("https://todos.proen.app.ruk-com.cloud/api/todos");
             if (data.status === 200) {
                 setTodos(data.data);
                 setLoading(false);
@@ -32,7 +32,7 @@ export default function Home () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.post("http://node53450-todos.proen.app.ruk-com.cloud:11349/todos", {
+            const { data } = await axios.post("https://todos.proen.app.ruk-com.cloud/api/todos", {
                 title,
                 description
             });
