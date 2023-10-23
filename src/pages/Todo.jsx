@@ -19,7 +19,7 @@ export default function Todo () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.get(`http://node53450-todos.proen.app.ruk-com.cloud/todos/${id}`);
+            const { data } = await axios.get(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${id}`);
             if (data.status === 200) {
                 setTodo(data.data);
                 setLoading(false);
@@ -36,7 +36,7 @@ export default function Todo () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.delete(`http://node53450-todos.proen.app.ruk-com.cloud/todos/${id}`);
+            const { data } = await axios.delete(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${id}`);
             if (data.status === 200) {
                 window.location.href = "/";
             } else {
@@ -52,7 +52,7 @@ export default function Todo () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.put(`http://node53450-todos.proen.app.ruk-com.cloud/todos/${id}`, {
+            const { data } = await axios.put(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${id}`, {
                 title,
                 description
             });
@@ -71,7 +71,7 @@ export default function Todo () {
             /**
              * @type {import("axios").AxiosResponse<{ status: number, message: string, data: {} }>}
              */
-            const { data } = await axios.post(`http://node53450-todos.proen.app.ruk-com.cloud/todos/${id}/tasks`, {
+            const { data } = await axios.post(`http://node53450-todos.proen.app.ruk-com.cloud:11349/todos/${id}/tasks`, {
                 title
             });
             if (data.status === 200) {
